@@ -1,7 +1,7 @@
 name: Model2FR
 description: The codgen from model to fish-redux-template
 version: 0.0.2
-homepage: https://github.com/huang12zheng/Model2FR/model2code.git
+homepage: https://github.com/huang12zheng/Model2FR/tree/master/model2code
 author: huang12zheng <805104533@qq.com>
 
 environment:
