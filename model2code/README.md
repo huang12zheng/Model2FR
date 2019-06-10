@@ -1,22 +1,63 @@
-A library for Dart developers.
+# Model2FR
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+Model2FR is a dart library for gen fish-redux-template from model;
 
+three steps for gen:
+1. Preparing Json files
+2. Run `flutter pub run Model2FR:main`
+3. Use it to coding
+
+# Installation
+Add these libraries into `pubspec.yaml`
+```
+dev_dependencies:
+    Model2FR: 0.0.2
+```
 ## Usage
 
-A simple usage example:
+### cli
+```bash
+>flutter pub run Model2FR:main -h
+-s, --source-dir    A source folder contains all string json files
+                    (defaults to "example/")
 
-```dart
-import 'package:model2code/model2code.dart';
+-o, --output-dir    A output folder stores all generated files
+                    (defaults to "generate/")
 
-main() {
-  var awesome = new Awesome();
-}
+-h, --help          Instance:
+                    > pub run fish-gens:main
+                    read from example/fish_domain,
+                    output to lib/generated,
+                    & source file need start with f. to work
 ```
 
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
+```bash
+[WARNING]: xxxx.dart does not match naming pattern [f.{locale}.json]
+[INFO]: xxxxx/fish_example/generate/todo_edit/action.dart is OK
+[INFO]: xxxxx/fish_example/generate/todo_edit/reducer.dart is OK
+[INFO]: xxxxx/fish_example/generate/todo_edit/effect.dart is OK
+[INFO]: xxxxx/fish_example/generate/todo_edit/state.dart is OK
+[INFO]: xxxxx/fish_example/generate/todo_edit/page.dart is OK
+[INFO]: xxxxx/fish_example/generate/todo_edit/view.dart is OK
+```
+### json
+```json
+/// example/f.todo.edit.json
+{
+    "DomainName" : "TodoEdit",
+    "Attrs":[
+      {"toDo":"Parent"},
+      {"nameEditController": "TextEditingController"},
+      {"descEditController": "TextEditingController"},
+      {"focusNodeName":"FocusNode"},
+      {"focusNodeDesc":"FocusNode"}
+    ],
+    "Actions":[
+      {"onEdit":[]},
+      {"edit":[{"name":"String"},{"desc":"String"}]},
+      {"done":[]},
+      {"onRemove":[]},
+      {"remove":[]}
+    ]
+}
+```
